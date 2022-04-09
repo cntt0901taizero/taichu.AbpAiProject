@@ -1,0 +1,5 @@
+abp new taichu.AbpProject -t app -u angular -m react-native --separate-identity-server --database-provider ef -csf
+
+link error login: https://blog.abp.io/abp/ABP.IO-Platform-5-2-RC-Has-Been-Published?_ga=2.172331047.50989427.1649422891-1968449824.1647701109
+dotnet tool update Volo.Abp.Cli -g --version 5.2.0-rc.1
+abp install-libs
