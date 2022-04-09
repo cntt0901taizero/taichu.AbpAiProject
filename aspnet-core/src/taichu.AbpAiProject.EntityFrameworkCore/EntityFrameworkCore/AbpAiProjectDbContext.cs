@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using taichu.AbpAiProject.AiTraining;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
 using Volo.Abp.BackgroundJobs.EntityFrameworkCore;
 using Volo.Abp.Data;
@@ -49,6 +50,12 @@ public class AbpAiProjectDbContext :
     // Tenant Management
     public DbSet<Tenant> Tenants { get; set; }
     public DbSet<TenantConnectionString> TenantConnectionStrings { get; set; }
+
+    #endregion
+
+    #region MyRegion
+
+    public DbSet<AiTrainingEntity> AiTrainingEntity { get; set; }
 
     #endregion
 
