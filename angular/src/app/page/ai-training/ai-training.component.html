@@ -1,1 +1,46 @@
-<p>ai-training works!</p>
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col col-md-6">
+                <h5 class="card-title">
+                    {{'::Menu:AiTraining:DataTraining'|abpLocalization}}
+                </h5>
+            </div>
+            <div class="text-right col col-md-6"></div>
+        </div>
+    </div>
+    <div class="card-body">
+        <ngx-datatable [rows]="data.items" [count]="data.totalCount" [list]="data" default>
+            <ngx-datatable-column name="STT">
+                <ng-template let-rowIndex="rowIndex" let-row="row" ngx-datatable-cell-template>
+                    {{(rowIndex + 1)}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="InputString" prop="inputString">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{ row?.inputString }}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="OutputString" prop="outputString">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{row?.outputString}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="FuncName" prop="funcName">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{row?.funcName}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Link" prop="link">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{row?.link}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Note" prop="note">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{row?.note}}
+                </ng-template>
+            </ngx-datatable-column>
+        </ngx-datatable>
+    </div>
+</div>

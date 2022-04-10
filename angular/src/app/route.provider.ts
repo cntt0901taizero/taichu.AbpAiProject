@@ -16,10 +16,17 @@ function configureRoutes(routesService: RoutesService) {
         layout: eLayoutType.application,
       },
       {
-        path: '/ai-trainning',
-        name: 'Ai Training',
+        path: '/ai-training',
+        name: '::Menu:AiTraining',
         iconClass: 'fas fa-book',
         order: 2,
+        layout: eLayoutType.application,
+      },
+      {
+        path: '/data-training',
+        name: '::Menu:AiTraining:DataTraining',
+        iconClass: 'fas fa-book',
+        parentName: '::Menu:AiTraining',
         layout: eLayoutType.application,
       },
     ]);

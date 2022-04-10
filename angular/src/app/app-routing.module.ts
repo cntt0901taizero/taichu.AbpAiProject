@@ -26,7 +26,8 @@ const routes: Routes = [
       import('@abp/ng.setting-management').then(m => m.SettingManagementModule.forLazy()),
   },
   {
-    path: 'ai-training',
+    path: 'data-training',
+    pathMatch: 'full',
     loadChildren: () =>
       import('./page/ai-training/ai-training.module').then(m => m.AiTrainingModule),
   },

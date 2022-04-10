@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AiTrainingComponent } from './ai-training.component';
 
 const routes: Routes = [
-  // {path: 'ai-training', component: AiTrainingComponent}
+  {path: '', component: AiTrainingComponent}
 ];
 
 @NgModule({
