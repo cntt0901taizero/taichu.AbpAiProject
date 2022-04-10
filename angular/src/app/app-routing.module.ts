@@ -5,7 +5,7 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
+    loadChildren: () => import('./page/home/home.module').then(m => m.HomeModule),
   },
   {
     path: 'account',
@@ -24,6 +24,11 @@ const routes: Routes = [
     path: 'setting-management',
     loadChildren: () =>
       import('@abp/ng.setting-management').then(m => m.SettingManagementModule.forLazy()),
+  },
+  {
+    path: 'ai-training',
+    loadChildren: () =>
+      import('./page/ai-training/ai-training.module').then(m => m.AiTrainingModule),
   },
 ];
 
