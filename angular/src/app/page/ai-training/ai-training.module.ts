@@ -5,11 +5,13 @@ import { AiTrainingRoutingModule } from './ai-training-routing.module';
 import { AiTrainingComponent } from './ai-training.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { NgZorroAntdModule } from 'src/app/ng-zorro-antd.module';
+import { UpsertDatatrainingComponent } from './components/upsert-datatraining/upsert-datatraining.component';
 
 
 @NgModule({
   declarations: [
-    AiTrainingComponent
+    AiTrainingComponent,
+    UpsertDatatrainingComponent
   ],
   imports: [
     SharedModule,

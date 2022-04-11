@@ -9,4 +9,5 @@ export interface AiTrainingDto extends EntityDto<number> {
 }
 
 export interface AiTrainingPagedAndSortedResultRequestDto extends PagedAndSortedResultRequestDto {
+  pageNumber: number;
 }

@@ -19,7 +19,8 @@ namespace taichu.AbpAiProject.AiTraining.Dto
 
     public class AiTrainingPagedAndSortedResultRequestDto : PagedAndSortedResultRequestDto
     {
-        
+        public int PageNumber { get; set; }
+        public string Filter { get; set; }
     }
 
 }

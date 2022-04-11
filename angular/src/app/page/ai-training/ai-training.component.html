@@ -10,9 +10,52 @@
         </div>
     </div>
     <div class="card-body">
-        <ngx-datatable [rows]="data.items" [count]="data.totalCount" [list]="data" default>
-            <ngx-datatable-column name="STT">
-                <ng-template let-rowIndex="rowIndex" let-row="row" ngx-datatable-cell-template>
+        <div nz-row [nzGutter]="[16,16]">
+            <div nz-col nzSpan="24">
+                <form nz-form [nzLayout]="'vertical'" [formGroup]="formGroup">
+                    <div nz-row nzGutter="16">
+                        <div nz-col [nzSpan]="12">
+                            <nz-form-item>
+                                <nz-form-label>Tìm kiếm từ khóa</nz-form-label>
+                                <nz-form-control>
+                                    <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton">
+                                        <input formControlName="filter" nz-input placeholder="Nhập nội dung tìm kiếm"/>
+                                    </nz-input-group>
+                                    <ng-template #suffixIconButton>
+                                        <nz-button-group>
+                                            <button nz-button nzType="primary" type="submit" title="Tìm kiếm" (click)="search()">
+                                                <i nz-icon nzType="search"></i>
+                                            </button>
+                                            <button nz-button nzType="default" title="Làm mới" (click)="clearFilter()">
+                                                <i nz-icon nzType="redo"></i>
+                                            </button>
+                                        </nz-button-group>
+                                    </ng-template>
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+                        <div nz-col [nzSpan]="12">
+                            <nz-form-item>
+                                <nz-form-label>&nbsp;</nz-form-label>
+                                <nz-form-control>
+                                    <button nz-button nzType="primary" nz-tooltip="Create" (click)="openUpsertModal()">
+                                        Thêm mới
+                                    </button>
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <ngx-datatable 
+        [columnMode]="'force'" [externalPaging]="true"
+        [rows]="data.items" [count]="data.totalCount" 
+        [offset]="filter.pageNumber" [limit]="filter.maxResultCount"
+        (page)="getGrid($event)" default
+        >
+            <ngx-datatable-column name="STT" [sortable]="false">
+                <ng-template let-rowIndex="rowIndex" ngx-datatable-cell-template>
                     {{(rowIndex + 1)}}
                 </ng-template>
             </ngx-datatable-column>
@@ -39,6 +82,12 @@
             <ngx-datatable-column name="Note" prop="note">
                 <ng-template let-row="row" ngx-datatable-cell-template>
                     {{row?.note}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Thao tác" [sortable]="false">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    <a nz-button nzType="link" nz-tooltip="Edit" (click)="openUpsertModal(row)"><i nz-icon nzType="edit"></i></a>
+                    <a nz-button nzType="link" nz-tooltip="Delete" (click)="delete(row)"><i nz-icon nzType="delete"></i></a>
                 </ng-template>
             </ngx-datatable-column>
         </ngx-datatable>

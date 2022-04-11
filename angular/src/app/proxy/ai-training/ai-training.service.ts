@@ -35,7 +35,7 @@ export class AiTrainingService {
     this.restService.request<any, PagedResultDto<AiTrainingDto>>({
       method: 'GET',
       url: '/api/app/ai-training',
-      params: { sorting: input.sorting, skipCount: input.skipCount, maxResultCount: input.maxResultCount },
+      params: { pageNumber: input.pageNumber, sorting: input.sorting, skipCount: input.skipCount, maxResultCount: input.maxResultCount },
     },
     { apiName: this.apiName });
 
