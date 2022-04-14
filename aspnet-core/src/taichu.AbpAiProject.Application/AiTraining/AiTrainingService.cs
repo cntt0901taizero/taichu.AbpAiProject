@@ -34,13 +34,13 @@ namespace taichu.AbpAiProject.AiTraining
             _repository = repository;
         }
 
-        public async Task<List<AiTrainingDto>> Test(AiTrainingPagedAndSortedResultRequestDto input)
-        {
-            IQueryable<AiTrainingEntity> queryable = await _repository.GetQueryableAsync();
-            var data = await queryable.Where(x => x.InputString.Contains(input.Filter))
-                .Select(x => ObjectMapper.Map<AiTrainingEntity, AiTrainingDto>(x))
-                .ToListAsync();
-            return data;
-        }
+        //public async Task<List<AiTrainingDto>> Test(AiTrainingPagedAndSortedResultRequestDto input)
+        //{
+        //    IQueryable<AiTrainingEntity> queryable = await _repository.GetQueryableAsync();
+        //    var data = await queryable.Where(x => x.InputString.Contains(input.Filter))
+        //        .Select(x => ObjectMapper.Map<AiTrainingEntity, AiTrainingDto>(x))
+        //        .ToListAsync();
+        //    return data;
+        //}
     }
 }
