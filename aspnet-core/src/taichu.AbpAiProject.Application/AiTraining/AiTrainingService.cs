@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Linq;
 using System.Linq.Dynamic.Core;
 using System.Threading.Tasks;
@@ -8,6 +7,7 @@ using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 using Volo.Abp.Domain.Repositories;
 using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 
 namespace taichu.AbpAiProject.AiTraining
 {
@@ -17,9 +17,7 @@ namespace taichu.AbpAiProject.AiTraining
             long, 
             AiTrainingPagedAndSortedResultRequestDto, 
             AiTrainingDto>
-    {
-
-    }
+    {}
 
     public class AiTrainingService :
         CrudAppService<
@@ -36,5 +34,13 @@ namespace taichu.AbpAiProject.AiTraining
             _repository = repository;
         }
 
+        public async Task<List<AiTrainingDto>> Test(AiTrainingPagedAndSortedResultRequestDto input)
+        {
+            IQueryable<AiTrainingEntity> queryable = await _repository.GetQueryableAsync();
+            var data = await queryable.Where(x => x.InputString.Contains(input.Filter))
+                .Select(x => ObjectMapper.Map<AiTrainingEntity, AiTrainingDto>(x))
+                .ToListAsync();
+            return data;
+        }
     }
 }
