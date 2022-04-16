@@ -17,19 +17,15 @@ const routes: Routes = [
   },
   {
     path: 'tenant-management',
-    loadChildren: () =>
-      import('@abp/ng.tenant-management').then(m => m.TenantManagementModule.forLazy()),
+    loadChildren: () => import('@abp/ng.tenant-management').then(m => m.TenantManagementModule.forLazy()),
   },
   {
     path: 'setting-management',
-    loadChildren: () =>
-      import('@abp/ng.setting-management').then(m => m.SettingManagementModule.forLazy()),
+    loadChildren: () => import('@abp/ng.setting-management').then(m => m.SettingManagementModule.forLazy()),
   },
   {
     path: 'data-training',
-    pathMatch: 'full',
-    loadChildren: () =>
-      import('./page/ai-training/ai-training.module').then(m => m.AiTrainingModule),
+    loadChildren: () => import('./page/ai-training/ai-training.module').then(m => m.AiTrainingModule),
   },
 ];
 
