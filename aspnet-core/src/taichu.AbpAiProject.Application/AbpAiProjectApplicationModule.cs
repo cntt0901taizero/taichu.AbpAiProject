@@ -1,4 +1,8 @@
-﻿using Volo.Abp.Account;
+﻿using MediatR;
+using MediatR.Pipeline;
+using Microsoft.Extensions.DependencyInjection;
+using System.Reflection;
+using Volo.Abp.Account;
 using Volo.Abp.AutoMapper;
 using Volo.Abp.FeatureManagement;
 using Volo.Abp.Identity;
@@ -23,9 +27,13 @@ public class AbpAiProjectApplicationModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)
     {
+        context.Services.AddAutoMapperObjectMapper<AbpAiProjectApplicationModule>();
         Configure<AbpAutoMapperOptions>(options =>
         {
             options.AddMaps<AbpAiProjectApplicationModule>();
         });
+        // Cấu hình MediatR
+        context.Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPreProcessorBehavior<,>));
+        context.Services.AddMediatR(typeof(AbpAiProjectApplicationModule).GetTypeInfo().Assembly);
     }
 }
