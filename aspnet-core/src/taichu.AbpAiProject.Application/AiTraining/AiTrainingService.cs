@@ -8,6 +8,8 @@ using Volo.Abp.Application.Services;
 using Volo.Abp.Domain.Repositories;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+//using MediatR;
+//using taichu.AbpAiProject.AiTraining.Business;
 
 namespace taichu.AbpAiProject.AiTraining
 {
@@ -17,7 +19,8 @@ namespace taichu.AbpAiProject.AiTraining
             long, 
             AiTrainingPagedAndSortedResultRequestDto, 
             AiTrainingDto>
-    {}
+    {
+    }
 
     public class AiTrainingService :
         CrudAppService<
@@ -28,19 +31,17 @@ namespace taichu.AbpAiProject.AiTraining
             AiTrainingDto>,
         IAiTrainingService  
     {
-        private IRepository<AiTrainingEntity, long> _repository;
-        public AiTrainingService(IRepository<AiTrainingEntity, long> repository) : base(repository)
+        private readonly IRepository<AiTrainingEntity, long> _repository;
+        public AiTrainingService(
+            IRepository<AiTrainingEntity, long> repository
+            ) : base(repository)
         {
             _repository = repository;
         }
 
-        //public async Task<List<AiTrainingDto>> Test(AiTrainingPagedAndSortedResultRequestDto input)
+        //public async Task<bool> Test()
         //{
-        //    IQueryable<AiTrainingEntity> queryable = await _repository.GetQueryableAsync();
-        //    var data = await queryable.Where(x => x.InputString.Contains(input.Filter))
-        //        .Select(x => ObjectMapper.Map<AiTrainingEntity, AiTrainingDto>(x))
-        //        .ToListAsync();
-        //    return data;
+        //    return await _mediator.Send(new TestRequest());
         //}
     }
 }
