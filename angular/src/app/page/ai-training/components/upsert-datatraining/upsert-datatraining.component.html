@@ -1,32 +1,34 @@
-<form nz-form [formGroup]="rfDataModal" nzLayout="horizontal">
+<form nz-form [formGroup]="rfDataModal" nzLayout="vertical">
     <nz-form-item >
-        <nz-form-label [nzSm]="8">Input String</nz-form-label>
-        <nz-form-control [nzSm]="16" nzErrorTip="Giá trị bắt buộc!">
+        <nz-form-label>Input String</nz-form-label>
+        <nz-form-control nzErrorTip="Giá trị bắt buộc!">
             <input nz-input formControlName="inputString"/>
         </nz-form-control>
     </nz-form-item>
     <nz-form-item >
-        <nz-form-label [nzSm]="8">Output String</nz-form-label>
-        <nz-form-control [nzSm]="16" nzErrorTip="Giá trị bắt buộc!">
+        <nz-form-label>Output String</nz-form-label>
+        <nz-form-control nzErrorTip="Giá trị bắt buộc!">
             <input nz-input formControlName="outputString"/>
         </nz-form-control>
     </nz-form-item>
     <nz-form-item >
-        <nz-form-label [nzSm]="8">Func Name</nz-form-label>
-        <nz-form-control [nzSm]="16" nzErrorTip="Giá trị bắt buộc!">
+        <nz-form-label>Func Name</nz-form-label>
+        <nz-form-control nzErrorTip="Giá trị bắt buộc!">
             <input nz-input formControlName="funcName"/>
         </nz-form-control>
     </nz-form-item>
     <nz-form-item >
-        <nz-form-label [nzSm]="8">Link</nz-form-label>
-        <nz-form-control [nzSm]="16" nzErrorTip="Giá trị bắt buộc!">
-            <input nz-input formControlName="link"/>
+        <nz-form-label>Link</nz-form-label>
+        <nz-form-control nzErrorTip="Giá trị bắt buộc!">
+            <textarea nz-input formControlName="link" nzAutosize></textarea>
+            <!-- <input nz-input formControlName="link"/> -->
         </nz-form-control>
     </nz-form-item>
     <nz-form-item >
-        <nz-form-label [nzSm]="8">Note</nz-form-label>
-        <nz-form-control [nzSm]="16" nzErrorTip="Giá trị bắt buộc!">
-            <input nz-input formControlName="note"/>
+        <nz-form-label>Note</nz-form-label>
+        <nz-form-control nzErrorTip="Giá trị bắt buộc!">
+            <app-input-ckeditor [itemSimple]="true" formControlName="note"></app-input-ckeditor>
+            <!-- <input nz-input formControlName="note"/> -->
         </nz-form-control>
     </nz-form-item>
     <nz-form-item>

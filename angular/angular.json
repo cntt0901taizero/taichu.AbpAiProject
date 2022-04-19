@@ -66,9 +66,12 @@
                 "inject": true,
                 "bundleName": "bootstrap-ltr.min"
               },
+              "src/assets/lib/ckeditor5/sample/styles.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/lib/ckeditor5/build/ckeditor.js"
+            ]
           },
           "configurations": {
             "production": {
