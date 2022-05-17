@@ -21,6 +21,7 @@ function configureRoutes(routesService: RoutesService) {
         iconClass: 'fas fa-book',
         order: 2,
         layout: eLayoutType.application,
+        requiredPolicy: 'AbpAiProject.AiTraining'
       },
       {
         path: '/data-training',
@@ -28,6 +29,7 @@ function configureRoutes(routesService: RoutesService) {
         iconClass: 'fas fa-book',
         parentName: '::Menu:AiTraining',
         layout: eLayoutType.application,
+        requiredPolicy: 'AbpAiProject.DataTraining'
       },
     ]);
   };

@@ -35,7 +35,14 @@ export class AiTrainingService {
     this.restService.request<any, PagedResultDto<AiTrainingDto>>({
       method: 'GET',
       url: '/api/app/ai-training',
-      params: { pageNumber: input.pageNumber, sorting: input.sorting, skipCount: input.skipCount, maxResultCount: input.maxResultCount },
+      params: { pageNumber: input.pageNumber, filter: input.filter, sorting: input.sorting, skipCount: input.skipCount, maxResultCount: input.maxResultCount },
+    },
+    { apiName: this.apiName });
+
+  test = () =>
+    this.restService.request<any, boolean>({
+      method: 'POST',
+      url: '/api/app/ai-training/test',
     },
     { apiName: this.apiName });
 

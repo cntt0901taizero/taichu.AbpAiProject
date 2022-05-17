@@ -4,7 +4,19 @@
     "Menu:Home": "Home",
     "Welcome": "Welcome",
     "LongWelcomeMessage": "Welcome to the application. This is a startup project based on the ABP framework. For more information, visit abp.io.",
-    "Menu:AiTraining": "AiTraining",
-    "Menu:AiTraining:DataTraining": "Data Training"
+
+    "Permission:AbpAiProject": "AbpAiProject",
+
+    // AiTraining
+    "Menu:AiTraining": "AI Training",
+    "Permission:AiTraining": "AI Training",
+
+    "Menu:AiTraining:DataTraining": "Data Training",
+    "Permission:DataTraining": "Data Training",
+    "Permission:DataTraining.Search": "Data Training - Search",
+    "Permission:DataTraining.List": "Data Training - List",
+    "Permission:DataTraining.Create": "Data Training - Create",
+    "Permission:DataTraining.Update": "Data Training - Update",
+    "Permission:DataTraining.Delete": "Data Training - Delete"
   }
 }

@@ -4,7 +4,7 @@
     "Menu:Home": "Domov",
     "Welcome": "Dobrodošli",
     "LongWelcomeMessage": "Dobrodošli v aplikaciji. To je začetni projekt na osnovi okolja ABP. Za več informacij obiščite abp.io.",
-    "Menu:AiTraining": "AiTraining",
+    "Menu:AiTraining": "AI Training",
     "Menu:AiTraining:DataTraining": "Data Training"
   }
 }

@@ -8,9 +8,15 @@ public class AbpAiProjectPermissionDefinitionProvider : PermissionDefinitionProv
 {
     public override void Define(IPermissionDefinitionContext context)
     {
-        var myGroup = context.AddGroup(AbpAiProjectPermissions.GroupName);
-        //Define your own permissions here. Example:
-        //myGroup.AddPermission(AbpAiProjectPermissions.MyPermission1, L("Permission:MyPermission1"));
+        var AbpAiProject = context.AddGroup(AbpAiProjectPermissions.GroupName, L("Permission:AbpAiProject"));
+
+        var AiTraining = AbpAiProject.AddPermission(AbpAiProjectPermissions.AiTraining, L("Permission:AiTraining"));
+        var DataTraining = AiTraining.AddChild(AbpAiProjectPermissions.DataTraining.Default, L("Permission:DataTraining"));
+        DataTraining.AddChild(AbpAiProjectPermissions.DataTraining.Search, L("Permission:DataTraining.Search"));
+        DataTraining.AddChild(AbpAiProjectPermissions.DataTraining.List, L("Permission:DataTraining.List"));
+        DataTraining.AddChild(AbpAiProjectPermissions.DataTraining.Create, L("Permission:DataTraining.Create"));
+        DataTraining.AddChild(AbpAiProjectPermissions.DataTraining.Update, L("Permission:DataTraining.Update"));
+        DataTraining.AddChild(AbpAiProjectPermissions.DataTraining.Delete, L("Permission:DataTraining.Delete"));
     }
 
     private static LocalizableString L(string name)

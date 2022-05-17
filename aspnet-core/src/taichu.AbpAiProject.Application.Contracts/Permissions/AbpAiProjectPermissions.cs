@@ -8,4 +8,14 @@ public static class AbpAiProjectPermissions
     //public const string MyPermission1 = GroupName + ".MyPermission1";
 
     public const string AiTraining = GroupName + ".AiTraining";
+    public static class DataTraining
+    {
+        public const string Default = GroupName + ".DataTraining";
+        public const string Search = Default + ".Search";
+        public const string List = Default + ".List";
+        public const string Create = Default + ".Create";
+        public const string Update = Default + ".Update";
+        public const string Delete = Default + ".Delete";
+    }
+
 }

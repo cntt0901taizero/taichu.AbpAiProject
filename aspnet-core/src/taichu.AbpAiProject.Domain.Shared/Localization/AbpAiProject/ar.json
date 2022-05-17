@@ -4,7 +4,7 @@
     "Menu:Home": "الرئيسية",
     "Welcome": "مرحبا",
     "LongWelcomeMessage": "مرحبا بكم في التطبيق. هذا مشروع بدء تشغيل يعتمد على إطار عمل ABP. لمزيد من المعلومات ، يرجى زيارة abp.io.",
-    "Menu:AiTraining": "AiTraining",
+    "Menu:AiTraining": "AI Training",
     "Menu:AiTraining:DataTraining": "Data Training"
   }
 }

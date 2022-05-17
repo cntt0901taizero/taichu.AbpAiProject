@@ -4,7 +4,7 @@
     "Menu:Home": "Главная",
     "Welcome": "Добро пожаловать",
     "LongWelcomeMessage": "Добро пожаловать в приложение. Этот запущенный проект основан на фреймворке ABP. Для получения дополнительной информации посетите сайт abp.io.",
-    "Menu:AiTraining": "AiTraining",
+    "Menu:AiTraining": "AI Training",
     "Menu:AiTraining:DataTraining": "Data Training"
   }
 }

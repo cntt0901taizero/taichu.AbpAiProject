@@ -4,7 +4,7 @@
     "Menu:Home": "Home",
     "Welcome": "Witaj",
     "LongWelcomeMessage": "Witaj w aplikacji. To jest inicjalny projekt bazujący na ABP framework. Po więcej informacji odwiedź stronę abp.io.",
-    "Menu:AiTraining": "AiTraining",
+    "Menu:AiTraining": "AI Training",
     "Menu:AiTraining:DataTraining": "Data Training"
   }
 }

@@ -4,7 +4,7 @@
     "Menu:Home": "Úvod",
     "Welcome": "Vítejte",
     "LongWelcomeMessage": "Vítejte v aplikaci. Toto je startovací projekt založený na ABP frameworku. Pro více informací, navštivte abp.io.",
-    "Menu:AiTraining": "AiTraining",
+    "Menu:AiTraining": "AI Training",
     "Menu:AiTraining:DataTraining": "Data Training"
   }
 }

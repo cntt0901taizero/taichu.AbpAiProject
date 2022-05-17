@@ -4,7 +4,19 @@
     "Menu:Home": "Trang chủ",
     "Welcome": "Chào mừng bạn",
     "LongWelcomeMessage": "Chào mừng bạn đến ứng dụng. Đây là một dự án khởi nghiệp dựa trên khung ABP. Để biết thêm thông tin, hãy truy cập abp.io.",
-    "Menu:AiTraining": "AiTraining",
-    "Menu:AiTraining:DataTraining": "Data Training"
+
+    "Permission:AbpAiProject": "AbpAiProject",
+
+    // AiTraining
+    "Menu:AiTraining": "AI Training",
+    "Permission:AiTraining": "AI Training",
+
+    "Menu:AiTraining:DataTraining": "Data Training",
+    "Permission:DataTraining": "Data Training",
+    "Permission:DataTraining.Search": "Data Training - Search",
+    "Permission:DataTraining.List": "Data Training - List",
+    "Permission:DataTraining.Create": "Data Training - Create",
+    "Permission:DataTraining.Update": "Data Training - Update",
+    "Permission:DataTraining.Delete": "Data Training - Delete"
   }
 }

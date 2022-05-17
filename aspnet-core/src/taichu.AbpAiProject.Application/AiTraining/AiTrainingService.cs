@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using MediatR;
 using taichu.AbpAiProject.AiTraining.Business;
+using taichu.AbpAiProject.Permissions;
 
 namespace taichu.AbpAiProject.AiTraining
 {
@@ -40,6 +41,12 @@ namespace taichu.AbpAiProject.AiTraining
         {
             _mediator = mediator;
             _repository = repository;
+
+            GetPolicyName = AbpAiProjectPermissions.DataTraining.Default;
+            GetListPolicyName = AbpAiProjectPermissions.DataTraining.Default;
+            CreatePolicyName = AbpAiProjectPermissions.DataTraining.Create;
+            UpdatePolicyName = AbpAiProjectPermissions.DataTraining.Update;
+            DeletePolicyName = AbpAiProjectPermissions.DataTraining.Delete;
         }
 
         public async Task<bool> Test()
