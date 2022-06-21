@@ -199,7 +199,12 @@ export class InputCkeditorComponent implements OnInit, AfterViewInit, ControlVal
             })
             .then(editor => {
                 this.editor = editor;
-                this.editor.isReadOnly = this.readonly;
+
+                if (this.readonly) {
+                    editor.enableReadOnlyMode(this.editor.id);
+                } else {
+                    editor.disableReadOnlyMode(this.editor.id);
+                }
 
                 this.editor.setData(this.value ? this.value : '');
                 fromEvent(this.editor.model.document, 'change').pipe(
@@ -247,5 +252,4 @@ export class InputCkeditorComponent implements OnInit, AfterViewInit, ControlVal
     }
 
 }
-
 

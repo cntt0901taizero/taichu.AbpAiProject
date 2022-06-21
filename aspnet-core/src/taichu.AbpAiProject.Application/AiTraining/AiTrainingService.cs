@@ -11,36 +11,30 @@ using Microsoft.EntityFrameworkCore;
 using MediatR;
 using taichu.AbpAiProject.AiTraining.Business;
 using taichu.AbpAiProject.Permissions;
+using Volo.Abp.Domain.Repositories.Dapper;
+using Volo.Abp.DependencyInjection;
+using taichu.AbpAiProject.EntityFrameworkCore;
+using BaseApplication.Factory;
+using Microsoft.AspNetCore.Authorization;
 
 namespace taichu.AbpAiProject.AiTraining
 {
-    public interface IAiTrainingService :
-        ICrudAppService<
+    //[Authorize]
+    public class AiTrainingService :
+        AbpAiProjectCrudAppService<
+            AiTrainingEntity,
             AiTrainingDto,
             long,
             AiTrainingPagedAndSortedResultRequestDto,
             AiTrainingDto>
     {
-    }
-
-    public class AiTrainingService :
-        CrudAppService<
-            AiTrainingEntity,
-            AiTrainingDto,
-            long,
-            AiTrainingPagedAndSortedResultRequestDto,
-            AiTrainingDto>,
-        IAiTrainingService
-    {
         private readonly IMediator _mediator;
-        private readonly IRepository<AiTrainingEntity, long> _repository;
         public AiTrainingService(
-            IMediator mediator,
-            IRepository<AiTrainingEntity, long> repository
-            ) : base(repository)
+            IAppFactory appFactory,
+            IMediator mediator
+            ) : base(appFactory)
         {
             _mediator = mediator;
-            _repository = repository;
 
             GetPolicyName = AbpAiProjectPermissions.DataTraining.Default;
             GetListPolicyName = AbpAiProjectPermissions.DataTraining.Default;
@@ -49,9 +43,11 @@ namespace taichu.AbpAiProject.AiTraining
             DeletePolicyName = AbpAiProjectPermissions.DataTraining.Delete;
         }
 
-        public async Task<bool> Test()
+        public async Task<long> Test()
         {
-            return await _mediator.Send(new TestRequest());
+            var res = await _mediator.Send(new TestRequest());
+            return 1;
         }
+
     }
 }

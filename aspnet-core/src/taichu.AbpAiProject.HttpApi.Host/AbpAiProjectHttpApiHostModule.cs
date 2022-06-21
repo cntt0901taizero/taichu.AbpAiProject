@@ -26,6 +26,7 @@ using Volo.Abp.Localization;
 using Volo.Abp.Modularity;
 using Volo.Abp.Swashbuckle;
 using Volo.Abp.VirtualFileSystem;
+using Newtonsoft.Json.Serialization;
 
 namespace taichu.AbpAiProject;
 
@@ -53,6 +54,7 @@ public class AbpAiProjectHttpApiHostModule : AbpModule
         ConfigureVirtualFileSystem(context);
         ConfigureDataProtection(context, configuration, hostingEnvironment);
         ConfigureCors(context, configuration);
+        ConfigureNewtonsoftJson(context);
         ConfigureSwaggerServices(context, configuration);
     }
 
@@ -106,6 +108,10 @@ public class AbpAiProjectHttpApiHostModule : AbpModule
 
     private static void ConfigureSwaggerServices(ServiceConfigurationContext context, IConfiguration configuration)
     {
+        var services = context.Services;
+        //... other configurations.
+
+        // 1. with auth
         context.Services.AddAbpSwaggerGenWithOAuth(
             configuration["AuthServer:Authority"],
             new Dictionary<string, string>
@@ -118,6 +124,16 @@ public class AbpAiProjectHttpApiHostModule : AbpModule
                 options.DocInclusionPredicate((docName, description) => true);
                 options.CustomSchemaIds(type => type.FullName);
             });
+
+        //// 2. with no auth
+        //services.AddAbpSwaggerGen(
+        //    options =>
+        //    {
+        //        options.SwaggerDoc("v1", new OpenApiInfo { Title = "AbpAiProject API", Version = "v1" });
+        //        options.DocInclusionPredicate((docName, description) => true);
+        //        options.CustomSchemaIds(type => type.FullName);
+        //    }
+        //);
     }
 
     private void ConfigureLocalization()
@@ -164,6 +180,12 @@ public class AbpAiProjectHttpApiHostModule : AbpModule
     {
         context.Services.AddCors(options =>
         {
+            //options.AddPolicy("AllowOrigin", options =>
+            //    options.AllowAnyOrigin()
+            //    .AllowAnyMethod()
+            //    .AllowAnyHeader()
+            //);
+
             options.AddDefaultPolicy(builder =>
             {
                 builder
@@ -180,6 +202,16 @@ public class AbpAiProjectHttpApiHostModule : AbpModule
                     .AllowCredentials();
             });
         });
+    }
+
+    private void ConfigureNewtonsoftJson(ServiceConfigurationContext context)
+    {
+        context.Services.AddControllersWithViews()
+            .AddNewtonsoftJson(options => 
+            options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore)
+            .AddNewtonsoftJson(options => 
+            options.SerializerSettings.ContractResolver = new DefaultContractResolver()
+        );
     }
 
     public override void OnApplicationInitialization(ApplicationInitializationContext context)

@@ -1,2 +1,3 @@
 import * as AiTraining from './ai-training';
-export { AiTraining };
+import * as BaseApplication from './base-application';
+export { AiTraining, BaseApplication };

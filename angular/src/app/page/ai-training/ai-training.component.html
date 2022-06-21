@@ -38,7 +38,8 @@
                             <nz-form-item>
                                 <nz-form-label>&nbsp;</nz-form-label>
                                 <nz-form-control>
-                                    <button nz-button nzType="primary" nz-tooltip="Create" (click)="openUpsertModal()">
+                                    <button *abpPermission="'AbpAiProject.DataTraining.Create'" nz-button 
+                                    nzType="primary" nz-tooltip="Create" (click)="openUpsertModal()">
                                         Thêm mới
                                     </button>
                                 </nz-form-control>
@@ -54,7 +55,7 @@
         [offset]="filter.pageNumber" [limit]="filter.maxResultCount"
         (page)="getGrid($event)" default
         >
-            <ngx-datatable-column name="STT" [sortable]="false">
+            <ngx-datatable-column name="STT" [sortable]="false" width="60">
                 <ng-template let-rowIndex="rowIndex" ngx-datatable-cell-template>
                     {{(rowIndex + 1)}}
                 </ng-template>
@@ -86,8 +87,10 @@
             </ngx-datatable-column>
             <ngx-datatable-column name="Thao tác" [sortable]="false">
                 <ng-template let-row="row" ngx-datatable-cell-template>
-                    <a nz-button nzType="link" nz-tooltip="Edit" (click)="openUpsertModal(row)"><i nz-icon nzType="edit"></i></a>
-                    <a nz-button nzType="link" nz-tooltip="Delete" (click)="delete(row)"><i nz-icon nzType="delete"></i></a>
+                    <a nz-button nzType="link" *abpPermission="'AbpAiProject.DataTraining.Update'"
+                    nz-tooltip="Edit" (click)="openUpsertModal(row)"><i nz-icon nzType="edit"></i></a>
+                    <a nz-button nzType="link" *abpPermission="'AbpAiProject.DataTraining.Delete'"
+                    nz-tooltip="Delete" (click)="delete(row)"><i nz-icon nzType="delete"></i></a>
                 </ng-template>
             </ngx-datatable-column>
         </ngx-datatable>
