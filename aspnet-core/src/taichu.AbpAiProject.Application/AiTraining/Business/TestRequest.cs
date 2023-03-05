@@ -89,7 +89,6 @@ namespace taichu.AbpAiProject.AiTraining.Business
                 await _factory.CurrentUnitOfWork.RollbackAsync();
                 _factory.CurrentUnitOfWork.Dispose();
             }
-            
 
             return true;
         }
